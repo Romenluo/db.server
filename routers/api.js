@@ -5,11 +5,6 @@ const home = require('../container/home');
 
 router.get('/get.do',home.getRequest);
 
-router.post('/home.do',function (request,response) {
-  let student = {
-    name:'luo'
-  }
-  response.json(student);
-});
+router.post('/home.do',home.getRequest);
 
 module.exports = router;

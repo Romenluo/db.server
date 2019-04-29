@@ -6,9 +6,8 @@ exports.getRequest = async (request,response)=>{
     userId:'123456',
     userName: 'luomen'
   }
-
-  let aa = helper.add(Student,student);
+  let aa = await helper.findAll(Student);
   console.log('*******************');
   console.log(aa);
-  response.json(status('SUCCESS',aa))
+  response.json(aa)
 }
