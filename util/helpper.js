@@ -6,9 +6,7 @@ const Status = require('./../config/errConfig');
  * @returns {Promise<{resCode: number, msg: string}>}
  */
 exports.add = async (model,params) => {
-  console.log('params',params);
   let flag = await model.create(params).catch(err => {console.log(err);return false});
-  console.log('add',flag);
   return (!!flag)?Status('SUCCESS',flag):Status('ADD_FAIL');
 };
 
@@ -78,7 +76,6 @@ exports.update_One = async (model, params, doc, opt=null) => {
 exports.findAll = async (model) => {
   let query = model.find();
   let result = await query.exec().catch(err => false);
-  console.log(result)
   return result ? Status('SUCCESS', result):Status('FIND_FAIL');
 };
 /**
